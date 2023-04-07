@@ -1,0 +1,20 @@
+.grandchild {
+  padding: 4px;
+  background-color: rgba(255, 156, 156, 0.941);
+}
+
+.child {
+  padding: 8px;
+  background-color: rgba(255, 213, 213, 0.983);
+}
+
+.parent {
+  padding: 0px;
+  background-color: rgb(255, 235, 235);
+  margin: 16px auto;
+  max-width: 960px;
+}
+
+.friend {
+  background-color: khaki;
+}
