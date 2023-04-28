@@ -153,7 +153,7 @@
 .smallnav .lt680px {
   display: none;
 }
-@container nav (width < 42.5rem) {
+@container menu (width < 42.5rem) {
   .smallnav__menuWrapper {
     display: none;
   }

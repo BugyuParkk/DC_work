@@ -156,7 +156,7 @@
   .lt680px {
     display: none;
   }
-  @container nav (width < 42.5rem) {
+  @container menu (width < 42.5rem) {
     &__menuWrapper {
       display: none;
     }
