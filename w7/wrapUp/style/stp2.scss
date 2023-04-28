@@ -52,6 +52,14 @@
   .lt680px {
     display: none;
   }
+  @container nav (width < 42.5rem) {
+    &__menuWrapper {
+      display: none;
+    }
+    .lt680px {
+      display: unset;
+    }
+  }
 }
 
 .main {
