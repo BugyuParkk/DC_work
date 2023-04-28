@@ -53,14 +53,6 @@
 .nav .lt680px {
   display: none;
 }
-@container nav (width < 42.5rem) {
-  .nav__menuWrapper {
-    display: none;
-  }
-  .nav .lt680px {
-    display: unset;
-  }
-}
 
 .main__media {
   background-color: rgb(220, 220, 220);
