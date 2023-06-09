@@ -38,11 +38,7 @@ section {
 }
 .diagonal::after {
   content: "";
-  background: linear-gradient(
-    45deg in oklch,
-    oklch(70% 0.25 0) 0%,
-    oklch(70% 0.25 150) 100%
-  );
+  background: linear-gradient(45deg in oklch, oklch(70% 0.25 0) 0%, oklch(70% 0.25 150) 100%);
   position: absolute;
   inset: 0;
   z-index: -1;
