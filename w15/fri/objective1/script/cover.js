@@ -2,7 +2,7 @@ const pTag = document.querySelector(
   ".first-parallel"
 );
 const textArr =
-  "Atum Shu Tefnut Geb Nut Osiris Isis Set Nephthys".split(
+  "Ra Shu Tefnut Geb Nut Osiris Isis Set Nephthys".split(
     " "
   );
 

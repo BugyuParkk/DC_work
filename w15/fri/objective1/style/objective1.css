@@ -38,7 +38,6 @@ body {
   margin-inline: auto;
   padding-inline: 2rem;
   margin-bottom: 12rem;
-  margin-top: 6rem;
 }
 .wrapper h1 {
   font-size: 9rem;
@@ -51,14 +50,18 @@ body {
   color: transparent;
   -webkit-background-clip: text;
 }
+.wrapper p {
+  font-family: system-ui;
+}
 
 #section1 {
+  margin-top: 6rem;
   display: flex;
   align-items: center;
 }
 
 .main__media img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
   margin-top: 1rem;
 }
@@ -88,6 +91,9 @@ header {
   grid-template-columns: fit-content(0) 1fr;
   grid-template-rows: 1fr;
   line-height: 1.75;
+}
+.stickyWrapper h2 {
+  color: rgb(200, 178, 115);
 }
 
 main {
@@ -194,9 +200,16 @@ aside a {
 
 footer .wrapper {
   min-height: max(100dvh, 2rem);
+  text-align: center;
+}
+footer .wrapper h2 {
+  color: rgb(200, 178, 115);
 }
 
 @media (width < 67.5rem) {
+  .wrapper h1 {
+    font-size: 6rem;
+  }
   #section1 {
     flex-direction: column;
   }
@@ -246,6 +259,12 @@ footer .wrapper {
   }
 }
 @media (width < 59.1875rem) {
+  .wrapper {
+    font-size: medium;
+  }
+  .wrapper h1 {
+    font-size: 4.5rem;
+  }
   aside ol {
     justify-content: flex-start;
   }
