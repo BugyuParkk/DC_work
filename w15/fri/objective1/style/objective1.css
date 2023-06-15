@@ -1,9 +1,12 @@
-@import url(theme.dark.css) (prefers-color-scheme: dark);
-@import url(theme.light.css) (prefers-color-scheme: light);
+@charset "UTF-8";
+@import "theme.dark.css" (prefers-color-scheme: dark);
+@import "theme.light.css" (prefers-color-scheme: light);
+@import url("https://fonts.googleapis.com/css2?family=Orbit&display=swap");
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  cursor: url(styleimg/호루스의\ 눈.png) 2 2, auto;
 }
 
 .hide {
@@ -17,21 +20,60 @@ html {
 
 body {
   margin: 0;
-  font-family: system-ui;
+  background-color: var(--bg);
+  color: var(--txt);
+  font-family: "Orbit", sans-serif;
   font-size: 1.125rem;
   line-height: 1.5;
-  background-color: 1.5;
-  color: var(--txt);
+  overflow-x: hidden;
 }
 
 .wrapper {
-  display: flex;
+  font-size: 18px;
   flex-direction: column;
+  display: flex;
   justify-content: center;
   max-width: calc(80ch + 4rem);
-  min-height: max(50dvh, 2rem);
+  min-height: max(100dvh, 2rem);
   margin-inline: auto;
   padding-inline: 2rem;
+  margin-bottom: 12rem;
+  margin-top: 6rem;
+}
+.wrapper h1 {
+  font-size: 9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8rem;
+  font-family: "Orbit", sans-serif;
+  background: linear-gradient(to right top, rgb(126, 101, 0), rgb(251, 237, 183));
+  color: transparent;
+  -webkit-background-clip: text;
+}
+
+#section1 {
+  display: flex;
+  align-items: center;
+}
+
+.main__media img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+}
+
+.textAnimation {
+  font-size: 1rem;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  font-family: "Orbit", sans-serif;
+  white-space: pre-line;
+  color: rgb(200, 178, 115);
+  margin-bottom: 16rem;
 }
 
 header {
@@ -40,15 +82,12 @@ header {
   word-break: keep-all;
 }
 
-section:nth-of-type(odd) {
-  background-color: var(--bgVariant);
-}
-
 .stickyWrapper {
-  position: relative;
   display: grid;
+  position: relative;
   grid-template-columns: fit-content(0) 1fr;
   grid-template-rows: 1fr;
+  line-height: 1.75;
 }
 
 main {
@@ -59,46 +98,46 @@ main {
 
 aside {
   position: sticky;
-  top: 0;
   z-index: 3;
+  top: 0;
   grid-column: 1;
   grid-row: 1;
-  padding-inline: 1rem 1.5rem;
-  background-color: var(--surface-transparent);
-  -webkit-backdrop-filter: blur(4px);
-          backdrop-filter: blur(4px);
   width: -moz-fit-content;
   width: fit-content;
   height: max(100dvh, 2rem);
+  padding-inline: 1rem 1.5rem;
   border-radius: 0 1rem 1rem 0;
-  font-size: 14px;
+  background-color: var(--surface-transparent);
+  font-size: 0.875rem;
+  -webkit-backdrop-filter: blur(0.25rem);
+          backdrop-filter: blur(0.25rem);
 }
 aside ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 aside ol li {
-  color: var(--onsurfce);
+  display: flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: center;
+  transition: color 150ms ease-out;
+  color: var(--onSurface);
   font-weight: 600;
   text-transform: capitalize;
-  display: flex;
-  transition: color 150ms ease-out;
+  gap: 0.75rem;
 }
 aside ol li::before {
   content: "";
-  margin-top: 0.1875rem;
   width: 1rem;
   height: 1rem;
-  border-radius: 99999999999px;
-  border: 0.125rem solid var(--onsurfce);
+  margin-top: 0.125rem;
   transition: border-color 150ms ease-out, background-color 150ms ease-out;
+  border: 0.125rem solid var(--onSurface);
 }
 aside ol li:hover {
   color: var(--accent);
@@ -110,18 +149,35 @@ aside ol li.pressed {
   color: var(--accent);
 }
 aside ol li.pressed::before {
-  background-color: var(--accent);
   border-color: var(--accent);
+  background-color: var(--accent);
 }
 aside a {
   text-decoration: none;
   cursor: pointer;
 }
 
+.cover {
+  width: 100vw;
+  margin-bottom: 10rem;
+  display: flex;
+}
+
+.cover:nth-child(1) {
+  margin-top: 10vh;
+}
+
+.first-parallel {
+  display: flex;
+  padding: 3rem 0;
+  font-size: 2rem;
+  color: rgb(200, 178, 115);
+}
+
 .progressBar {
   position: sticky;
-  top: 0;
   z-index: 2;
+  top: 0;
   grid-column: 1/span 2;
   grid-row: 1;
   width: 100%;
@@ -141,6 +197,12 @@ footer .wrapper {
 }
 
 @media (width < 67.5rem) {
+  #section1 {
+    flex-direction: column;
+  }
+  .main__media {
+    max-width: 100%;
+  }
   .stickyWrapper {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto 1fr;
@@ -150,19 +212,18 @@ footer .wrapper {
     grid-row: 3;
   }
   aside {
-    position: sticky;
     top: 1rem;
     grid-column: 1;
     grid-row: 3;
     width: 100%;
     height: -moz-fit-content;
     height: fit-content;
-    padding-inline: unset;
     padding-block: 1rem;
-    border-radius: 0 0 1rem 1rem;
+    padding-inline: unset;
     overflow-x: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    border-radius: 0 0 1rem 1rem;
   }
   aside::-webkit-scrollbar {
     display: none;
@@ -173,14 +234,11 @@ footer .wrapper {
     justify-content: center;
     gap: 3rem;
   }
-  aside a:first-of-type li {
+  aside ol a:first-of-type li {
     margin-left: 2rem;
   }
-  aside a:last-of-type li {
+  aside ol a:last-of-type li {
     margin-right: 2rem;
-  }
-  aside a {
-    text-decoration: none;
   }
   .progressBar {
     grid-column: 1;
@@ -188,14 +246,6 @@ footer .wrapper {
   }
 }
 @media (width < 59.1875rem) {
-  .stickyWrapper {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto 1fr;
-  }
-  main {
-    grid-column: 1;
-    grid-row: 3;
-  }
   aside ol {
     justify-content: flex-start;
   }
