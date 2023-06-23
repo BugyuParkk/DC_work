@@ -1,12 +1,12 @@
-@charset "UTF-8";
 @import "theme.dark.css" (prefers-color-scheme: dark);
 @import "theme.light.css" (prefers-color-scheme: light);
 @import url("https://fonts.googleapis.com/css2?family=Orbit&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap");
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  cursor: url(styleimg/호루스의\ 눈.png) 2 2, auto;
+  cursor: url(styleimg/TheEyeofHorus.png) 2 2, auto;
 }
 
 .hide {
@@ -51,7 +51,7 @@ body {
   -webkit-background-clip: text;
 }
 .wrapper p {
-  font-family: system-ui;
+  font-family: "Gowun Dodum", sans-serif;
 }
 
 #section1 {
@@ -61,6 +61,7 @@ body {
 }
 
 .main__media img {
+  max-width: 100%;
   width: 100%;
   height: auto;
   margin-top: 1rem;
@@ -106,14 +107,12 @@ aside {
   position: sticky;
   z-index: 3;
   top: 0;
-  grid-column: 1;
+  grid-column: 3;
   grid-row: 1;
   width: -moz-fit-content;
   width: fit-content;
   height: max(100dvh, 2rem);
   padding-inline: 1rem 1.5rem;
-  border-radius: 0 1rem 1rem 0;
-  background-color: var(--surface-transparent);
   font-size: 0.875rem;
   -webkit-backdrop-filter: blur(0.25rem);
           backdrop-filter: blur(0.25rem);
@@ -130,6 +129,7 @@ aside ol {
 aside ol li {
   display: flex;
   align-items: center;
+  text-align: center;
   justify-content: center;
   transition: color 150ms ease-out;
   color: var(--onSurface);
@@ -139,11 +139,17 @@ aside ol li {
 }
 aside ol li::before {
   content: "";
-  width: 1rem;
   height: 1rem;
   margin-top: 0.125rem;
   transition: border-color 150ms ease-out, background-color 150ms ease-out;
-  border: 0.125rem solid var(--onSurface);
+  border: 1px solid var(--onSurface);
+}
+aside ol li::after {
+  content: "";
+  height: 1rem;
+  margin-top: 0.125rem;
+  transition: border-color 150ms ease-out, background-color 150ms ease-out;
+  border: 1px solid var(--onSurface);
 }
 aside ol li:hover {
   color: var(--accent);
@@ -151,10 +157,17 @@ aside ol li:hover {
 aside ol li:hover::before {
   border-color: var(--accent);
 }
+aside ol li:hover::after {
+  border-color: var(--accent);
+}
 aside ol li.pressed {
   color: var(--accent);
 }
 aside ol li.pressed::before {
+  border-color: var(--accent);
+  background-color: var(--accent);
+}
+aside ol li.pressed::after {
   border-color: var(--accent);
   background-color: var(--accent);
 }
@@ -187,7 +200,7 @@ aside a {
   grid-column: 1/span 2;
   grid-row: 1;
   width: 100%;
-  height: 1rem;
+  height: 3px;
   background-color: var(--surface);
 }
 .progressBar .indicator {
@@ -225,7 +238,7 @@ footer .wrapper h2 {
     grid-row: 3;
   }
   aside {
-    top: 1rem;
+    top: 3px;
     grid-column: 1;
     grid-row: 3;
     width: 100%;
@@ -244,14 +257,11 @@ footer .wrapper h2 {
   aside ol {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     gap: 3rem;
+    justify-content: flex-start;
   }
   aside ol a:first-of-type li {
     margin-left: 2rem;
-  }
-  aside ol a:last-of-type li {
-    margin-right: 2rem;
   }
   .progressBar {
     grid-column: 1;
@@ -264,8 +274,5 @@ footer .wrapper h2 {
   }
   .wrapper h1 {
     font-size: 4.5rem;
-  }
-  aside ol {
-    justify-content: flex-start;
   }
 }
